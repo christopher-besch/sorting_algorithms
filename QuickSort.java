@@ -7,10 +7,18 @@ public class QuickSort {
     static boolean demo = false;
 
     public static void main(String[] args) {
-        int[] array = fill_array(1000, 0, 10000);
+        int[] array = fill_array(10, 0, 100);
         sort(array);
         System.out.println("The result is:");
         print_array(array);
+    }
+
+    public static void hold() {
+        // wait for input
+        if (demo)
+            reader.nextLine();
+        else
+            System.out.println();
     }
 
     public static void print_elements(int[] array, int[] elements_idx) {
@@ -47,12 +55,7 @@ public class QuickSort {
     }
 
     public static void print_swap(int[] array, int first_idx, int second_idx) {
-        System.out.print("swapping " + (first_idx + 1) + ". element and " + (second_idx + 1) + ". element:");
-        // wait for input
-        if (demo)
-            reader.nextLine();
-        else
-            System.out.println();
+        System.out.println("swapping " + (first_idx + 1) + ". element and " + (second_idx + 1) + ". element:");
         print_array(array);
 
         for (int idx = 0; idx < array.length; idx++) {
@@ -133,6 +136,7 @@ public class QuickSort {
         System.out.println("Now sorting:");
         print_array(array);
         System.out.println();
+        hold();
 
         // when the array is too short to be sorted
         if (array.length <= 1) {
@@ -156,6 +160,7 @@ public class QuickSort {
 
         // move every smaller element than the pivot to the left of the pivot and bigger elements to the right -> get pivot in correct location
         while (true) {
+            hold();
             int idx_from_left = get_idx_from_left(array, array[pivot_idx]);
             int idx_from_right = get_idx_from_right(array, array[pivot_idx]);
 
